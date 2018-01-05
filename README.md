@@ -64,7 +64,7 @@ functionMarkStructures.m
 
 Returns the presence of shadow, echogenic plaque or bifurcations in each column of an IVUS image in polar coordinates.
 
-###Citing
+### Citing
 
 Lucas Lo Vercio, Mariana del Fresno, y Ignacio Larrabide. Detection of morphological structures for vessel wall segmentation in IVUS using random forests. In 12th International Symposium on Medical Information Processing and Analysis. 2017.
 
@@ -82,4 +82,5 @@ year = {2017}
 There are also some third party libraries included in our code. If you use it, please cite:
 
 **Color map CoolWarmUChar257.csv provided by Kenneth Moreland:** Diverging Color Maps for Scientific Visualization. Kenneth Moreland. In Proceedings of the 5th International Symposium on Visual Computing, December 2009. DOI 10.1007/978-3-642-10520-3_9.
+
 **Sample IVUS images provided by Simone Balocco:** Simone Balocco et al. Standardized evaluation methodology and reference database for evaluating IVUS image segmentation. Comput Med Imaging Graph, 38(2):70-90, 2014.
