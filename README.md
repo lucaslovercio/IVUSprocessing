@@ -1,12 +1,16 @@
-#IVUS image preprocessing for segmentation
+# IVUS image preprocessing for segmentation
+
 Lucas Daniel Lo Vercio
+
 Pladema Institute (Facultad de Ciencias Exactas, UNCPBA, Tandil, Argentina) and CONICET (Consejo Nacional de Investigaciones Científicas y Técnicas, Argentina)
+
 Supervised by Mariana del Fresno and Ignacio Larrabide
 
-##Introduction
+## Introduction
 This toolbox provides preprocessing for 20 MHz IVUS images, particularly enhancement for lumen, vessel wall and sourrounding tissues (LoVercio2016), and classification of morphological structures (LoVercio2017). These are necessary steps for lumen-intima and media-adventicia segmentation.
 
-##License
+## License
+
 MIT License
 
 Copyright 2017 Lucas D. Lo Vercio
@@ -29,13 +33,13 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-##Lumen and background classification
+## Lumen and background classification
 
 functionGetScoreMaps.m
 
 Returns the pixel classification for Lumen and Background of an IVUS image in polar coordinates.
 
-###Citing
+### Citing
 
 Lucas Lo Vercio, José Ignacio Orlando, Mariana del Fresno, y Ignacio Larrabide. Assessment of image features for vessel wall segmentation in intravascular ultrasound images. International Journal of Computer Assisted Radiology and Surgery, 2016. ISSN 1861-6429.
 
