@@ -2,7 +2,7 @@ close all;
 clear all;
 clc;
 SetValuesIVUSChallengeSetB;
-imgRGB = imread('frame_06_0037_003.png');
+imgRGB = imread('image1.png');
 imgCart = imgRGB(:,:,1);
 
 [ imgPolar ] = functionToPolar( imgCart, ParametersSet );
