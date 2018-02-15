@@ -1,4 +1,4 @@
-function [ inicSnakeXLI, inicSnakeYLI ] = functionSegment(scoreMapLumen, scoreMapBackground,...
+function [ XLI,YLI,XMA,YMA ] = functionSegment(scoreMapLumen, scoreMapBackground,...
     predictedBifs, predictedShadow, predictedEP, detectStructures, ParametersSet )
 
 [ polarLI ] = functionEdgeScores( scoreMapLumen );
@@ -117,5 +117,5 @@ gradientForces = Derive2;
 %Interpolation
 dmin=0.4;
 dmax=1;
-[XContourLIinterp,YContourLIinterp] = snakeinterp(XContourLI,YContourLI,dmax,dmin);
-[XContourMAinterp,YContourMAinterp] = snakeinterp(XContourMA,YContourMA,dmax,dmin);
+[XLI,YLI] = snakeinterp(XContourLI,YContourLI,dmax,dmin);
+[XMA,YMA] = snakeinterp(XContourMA,YContourMA,dmax,dmin);
