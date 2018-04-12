@@ -1,5 +1,5 @@
 function [c,R2] = functionLeastSquareLinear(x,y)
-
+%Source: http://web.cecs.pdx.edu/~gerry/nmm/course/slides/ch09Slides.pdf
 % linefit Least-squares fit of data to y = c(1)*x + c(2)
 %
 % Synopsis: c = linefit(x,y)

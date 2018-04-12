@@ -23,10 +23,10 @@ gaussFilter = exp(-x .^ 2 / (2 * sigma ^ 2));
 gaussFilter = gaussFilter / sum (gaussFilter);
 cantPositivosColFiltered = conv (cantPositivosColMedian, gaussFilter, 'same');
 
-%Derivo
+%Finite diffence
 cantPositivosColFilteredDerivada = cantPositivosColFiltered - circshift(cantPositivosColFiltered,[0 2]);
 
-%Las puntas son un problema
+%Problems at the edges
 cantPositivosColFilteredDerivada(1:2)=0; cantPositivosColFilteredDerivada((3*w-2):3*w)=0;
 
 distanceToStartOrFinishOfFeature = 4;

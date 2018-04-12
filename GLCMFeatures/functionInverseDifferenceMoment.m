@@ -1,6 +1,4 @@
 function valorFeature = functionInverseDifferenceMoment( glcm, levels )
-%FUNCTIONINVERSEDIFFERENCEMOMENT Summary of this function goes here
-%   Detailed explanation goes here
 
 subtotal = 0;
 
@@ -13,7 +11,6 @@ for i=1:1:levels
 end
 
 valorFeature = subtotal;
-
 
 end
 

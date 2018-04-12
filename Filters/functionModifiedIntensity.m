@@ -21,13 +21,12 @@ for x=1:1:widthPolar
             
         end
         
-        %multiplicar coef por sumatoria
+        %coef * sum
         ponderado = sumatorias.*coefs;
         
-        %elegir maximo
-        maximo = max(ponderado);
+        maximum = max(ponderado);
         
-        Imodified(y,x) = maximo;
+        Imodified(y,x) = maximum;
         
     end
 end

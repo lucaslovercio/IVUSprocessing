@@ -1,9 +1,9 @@
-function [Xsnake,Ysnake] = functionSnakePolar(scoreMap, balloonForcesScore,...
+function [Xsnake,Ysnake] = functionSnakePolar(edgesPolar, inflationForces,...
     gradientForces, tensionCoef, flexuralCoef, inflationCoef, gradientCoef,...
     deltaT, maxIter, nrosVert, Xsnake, Ysnake)
 
-plotear = false;
-[sm,sn] = size(scoreMap);
+doPlot = false;
+[sm,sn] = size(edgesPolar);
 
 if length(Xsnake)<2
     Ysnake = ones(1,nrosVert) * 15;
@@ -12,20 +12,11 @@ if length(Xsnake)<2
 end
 radius = 1;
 
-sizeBalloon= size(balloonForcesScore);
+sizeBalloon= size(inflationForces);
 
-if plotear
-    [redColorMap,greenColorMap,blueColorMap] = functionLevantarDivergingMapFromCSV();
-    colorMap = [redColorMap, greenColorMap, blueColorMap]./256;
-    h = figure('Name','Snake');
-    hold on;
-    caxis([-2,2]);
-    [C,h1] = contourf(flipud(scoreMap),120);
-    set(h1,'LineColor','none');
-    set(gca, 'DataAspectRatio', [1 1 1]);
-    colormap(colorMap);
-    
-    plot(Xsnake,sm-Ysnake,'g');
+if doPlot
+    hFigure = functionShowScoreMap( inflationForces, 'Inflation force' );
+    hold on; plot(Xsnake,sm-Ysnake,'g','LineWidth',1.5);
 end
 
 iter=1;
@@ -33,36 +24,33 @@ converge = false;
 YsnakeOld = ones(size(Ysnake))*(sm-2); %Init
 while not(converge) && (iter<maxIter)
     
-    %Equation 2 de T-Snakes Tension Force
+    %Equation 2 - T-Snakes Tension Force
     tensileForcesY = 2 * Ysnake - circshift(Ysnake,[0 radius]) - circshift(Ysnake,[0 -radius]);
     tensileForces = tensileForcesY;
     
-    %Equation 3 de T-Snakes Bending force
+    %Equation 3 - T-Snakes Bending force
     flexuralForces = 2 * tensileForces - circshift(tensileForces,[0 radius]) - circshift(tensileForces,[0 -radius]);
     
     %Equation 4 Inflation force
     indexes = sub2ind(sizeBalloon, int32(Ysnake), int32(Xsnake));
-    %indexes(150:3:170)
-    %inflationForces = externalForceSVMScores(indexes);
     
-    %Equation Pag 215 balloon force Cohen 1991
+    %Equation Page 215 balloon force Cohen 1991
     vectorGradienteForce = gradientForces(indexes);
-    vectorInflation = balloonForcesScore(indexes);
+    vectorInflation = inflationForces(indexes);
 
     F =  vectorInflation * inflationCoef +  vectorGradienteForce * gradientCoef;
     
-    %Ecuacion 8 de T-Snakes
+    %Ecuacion 8 T-Snakes
     Ysnake = Ysnake - deltaT * (tensileForces * tensionCoef + flexuralForces * flexuralCoef - F);
     
     %Overflow and underflow control
     Ysnake(Ysnake<1)=1;
     Ysnake(Ysnake>sm)=sm;
     
-    %Plot
-    if mod(iter,1000)==0
+    if mod(iter,maxIter/5)==0
         converge = ((sum((YsnakeOld-Ysnake).^2))/nrosVert)<0.001;
         YsnakeOld = Ysnake;
-        if plotear
+        if doPlot
             plot(Xsnake,sm-Ysnake,'b');
         end
     end
@@ -70,7 +58,7 @@ while not(converge) && (iter<maxIter)
     
 end
 
-if plotear
+if doPlot
     plot(Xsnake,sm-Ysnake,'r');
     hold off;
 end

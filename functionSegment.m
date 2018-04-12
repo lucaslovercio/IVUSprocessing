@@ -26,7 +26,6 @@ end
 
 %Delete edge in Bifs
 polarLI(colsBifurcation>0)=1;
-scoreMapLumen(colsBifurcation>0)=0;
 
 %Connected components
 CC = bwconncomp(not(polarLI));
@@ -46,8 +45,8 @@ GsmoothAbs = abs(polarLIFiltered); % |gradImg|
 Derive2 = Derive2.*(-1);
 
 %Snake
-tensionCoefLI = 2;
-inflationCoefLI = 0.15;
+tensionCoefLI = 3;
+inflationCoefLI = 0.5;
 flexuralCoef = 0;
 gradientCoef = 1;
 
@@ -57,7 +56,7 @@ maxIter = 200000;
 numberOfSnakePoints = ParametersSet.widthPolar;
 
 [ inicSnakeXLI, inicSnakeYLI ] =...
-    functionSnakeInitialization( not(polarLI), numberOfSnakePoints, true, false, 40 );
+    functionSnakeInitializationFourier( not(polarLI), numberOfSnakePoints, true, false, 40 );
 
 [XsnakeLI,YsnakeLI] = functionSnakePolar(polarLI, scoreMapLumen, gradientForces,...
     tensionCoefLI, flexuralCoef, inflationCoefLI ,gradientCoef, deltaT, maxIter,...
@@ -77,9 +76,6 @@ polarMA(colsBifurcation>0)=1;
 polarMA(colsShadows>0)=1;
 polarMA(colsEP>0 & polarLIRegion>0)=1;
 
-scoreMapBackground(colsShadows>0)=0;
-scoreMapBackground(colsBifurcation>0)=0;
-
 %Connected components
 CC = bwconncomp(not(polarMA));
 for i=1:1:CC.NumObjects
@@ -96,14 +92,15 @@ GsmoothAbs = abs(polarMAFiltered); % |gradImg|
 Derive2 = Derive2.*(-1);
 
 %Snake
-tensionCoefMA = 0.7;
-inflationCoefMA = 0.005;
+tensionCoefMA = 0.3;
+inflationCoefMA = 0.0005;
 
 gradientForces = Derive2;
 
-[ inicSnakeXMA, inicSnakeYMA ] = functionSnakeInitialization( not(polarMA), numberOfSnakePoints, true, false, 40 );
+[ inicSnakeXMA, inicSnakeYMA ] =...
+    functionSnakeInitializationFourier( not(polarMA), numberOfSnakePoints, true, false, 40 );
 
-[XsnakeMA,YsnakeMA] = functionSnakePolar(polarMA, scoreMapBackground, gradientForces,...
+[~,YsnakeMA] = functionSnakePolar(polarMA, scoreMapBackground, gradientForces,...
     tensionCoefMA, flexuralCoef, inflationCoefMA,gradientCoef, deltaT, maxIter,...
     numberOfSnakePoints, inicSnakeXMA, inicSnakeYMA);
 

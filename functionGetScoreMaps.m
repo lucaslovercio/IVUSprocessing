@@ -12,8 +12,8 @@ haralicksRadial.contrastRadial = (haralicksRadial.contrastRadial - mean(haralick
 
 disp('Median filter');
 window = 7; it = 25;
-mediana = functionMedianFilter( imgPolar, window, it, ParametersSet.widthPolar, ParametersSet.heightPolar );
-mediana = (mediana - mean(mediana(:))) / std(mediana(:));
+median_ = functionMedianFilter( imgPolar, window, it, ParametersSet.widthPolar, ParametersSet.heightPolar );
+median_ = (median_ - mean(median_(:))) / std(median_(:));
 
 disp('Maximum smoothed intensity');
 Unal2008 = functionModifiedIntensity( imgPolar, ParametersSet.widthPolar, ParametersSet.heightPolar );
@@ -37,12 +37,11 @@ scoresLumen = wSVMLumenNoLumen*vectorFeaturesLumen' + bSVMLumenNoLumen;
 mapScoresLumen = vec2mat(scoresLumen,ParametersSet.heightPolar)';
 
 vectorFeaturesBackground = horzcat(Unal2008(:), distanceFromCatheter(:), haralicksRadial.contrastRadial(:),...
-    imgPolar(:), mediana(:), haralicks.entropy(:));
+    imgPolar(:), median_(:), haralicks.entropy(:));
 scoresBackground = wSVMBackground*vectorFeaturesBackground' + bSVMBackground;
 mapScoresBackground = vec2mat(scoresBackground,ParametersSet.heightPolar)';
 
-functionShowScoreMap( mapScoresLumen, 'Lumen' );
-
-functionShowScoreMap( mapScoresBackground, 'Background' );
+functionShowScoreMap( mapScoresLumen, 'Lumen classification' );
+functionShowScoreMap( mapScoresBackground, 'Background classification' );
 
 end

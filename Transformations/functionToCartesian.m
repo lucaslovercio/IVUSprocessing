@@ -1,10 +1,9 @@
-%Al reves, for entre las cartesianas
-%function cartesiana = ToCartesian( aCartesiana, widthPolar, heightPolar, widthStandard, heightStandard, centroX, centroY, radioInterior, radioExterior)
+
 function cartesiana = functionToCartesian(aCartesiana, ParametersSet)
 cartesiana = zeros(ParametersSet.heightStandard, ParametersSet.widthStandard);
 for x=1:1:ParametersSet.widthStandard
     for y=1:1:ParametersSet.heightStandard
-        %mover al centro de coordenadas
+        
         x2 = x-ParametersSet.centerX;
         y2 = y-ParametersSet.centerY;
         
@@ -14,12 +13,12 @@ for x=1:1:ParametersSet.widthStandard
         seno = y2/r;
         ang = asin(seno);
         
-        if (x2<=0 && y2>=0) %Segundo cuadrante
+        if (x2<=0 && y2>=0) %quadrant 2
             ang = pi - ang;
         else
-            if (x2<=0 && y2<=0) %Tercer cuadrante
+            if (x2<=0 && y2<=0) %quadrant 3
                 ang = pi - ang;
-            else %Cuarto cuadrante
+            else %quadrant 4
                 if (x2>=0 && y2<=0)
                     ang = 2*pi + ang;
                 end

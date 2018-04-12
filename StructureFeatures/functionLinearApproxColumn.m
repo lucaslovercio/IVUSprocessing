@@ -1,6 +1,4 @@
 function [ slopes,intercepts,lost ] = functionLinearApproxColumn( scoreMap )
-%FUNCTIONLINEARAPPROXCOLUMN Summary of this function goes here
-%   Detailed explanation goes here
 
 [h,w]=size(scoreMap);
 slopes = zeros(1,w);

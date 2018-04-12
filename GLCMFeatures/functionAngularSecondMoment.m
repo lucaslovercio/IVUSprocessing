@@ -1,9 +1,7 @@
 %Haralick angular second moment (1)
-%GLCM p(), no totales!!
-%Da igual al graycoprops(glcm,'Energy'); de MATLAB
+%GLCM p(), no total!!
+%Same result as graycoprops(glcm,'Energy'); from MATLAB
 function valorFeature = functionAngularSecondMoment( glcm, levels )
-%FUNCTIONANGULARSECONDMOMENT Summary of this function goes here
-%   Detailed explanation goes here
 
 subtotal = 0;
 for i=1:1:levels

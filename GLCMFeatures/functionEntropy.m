@@ -1,9 +1,7 @@
 %Haralick Entropy (9)
-%GLCM p(), no totales!!
+%GLCM p(), no totals!!
 
 function valorFeature = functionEntropy( glcm, levels )
-%FUNCTIONENTROPY Summary of this function goes here
-%   Detailed explanation goes here
 
 mieps=0.00000001;
 

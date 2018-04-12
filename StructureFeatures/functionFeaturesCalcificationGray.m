@@ -1,32 +1,32 @@
-function [medianUnderMaximo,RatioDong2013, stdShadow, candidatesCalcificationOtsu] =...
+function [medianUnderMaximum,RatioDong2013, stdShadow, candidatesCalcificationOtsu] =...
     functionFeaturesCalcificationGray( imgPolarOriginal )
 [h,w] = size(imgPolarOriginal);
 [values,positions] = max(imgPolarOriginal);
-profundidadCalcificacion = 15;
+depthCalc = 15;
 
-medianUnderMaximo = zeros(1,w);
+medianUnderMaximum = zeros(1,w);
 stdShadow = zeros(1,w);
 for i=1:w
     if positions(i)<0
-        medianUnderMaximo(i) = 1;
+        medianUnderMaximum(i) = 1;
     else
-        inicBack = positions(i)+profundidadCalcificacion;
+        inicBack = positions(i)+depthCalc;
         if inicBack>h
             inicBack = h;
         end
         col = imgPolarOriginal(inicBack:h,i);
         if isempty(col) || (sum(isnan(col)>0))
-            medianUnderMaximo(i) = -1;
+            medianUnderMaximum(i) = -1;
             stdShadow(i) = 0;
         else
-            medianUnderMaximo(i) = median(col);
+            medianUnderMaximum(i) = median(col);
             stdShadow(i) = std(col);
         end
     end
 end
 
 
-RatioDong2013 = medianUnderMaximo./values;
+RatioDong2013 = medianUnderMaximum./values;
 
 %Otsu as DosSantos2013
 
@@ -36,12 +36,12 @@ level1 = graythresh(imgPolarOriginal); %Otsu
 mask1 = im2bw(imgPolarOriginal,level1);
 
 %Second time
-pixelesMitadHistograma = imgPolarOriginal(mask1);
-level2 = graythresh(pixelesMitadHistograma);
+pixelesHalfHistograma = imgPolarOriginal(mask1);
+level2 = graythresh(pixelesHalfHistograma);
 mask2 = im2bw(imgPolarOriginal,level2);
 
-pixelesMitadHistograma = imgPolarOriginal(mask2);
-level3 = graythresh(pixelesMitadHistograma);
+pixelesHalfHistograma = imgPolarOriginal(mask2);
+level3 = graythresh(pixelesHalfHistograma);
 mask3 = im2bw(imgPolarOriginal,level3);
 
 candidatesCalcificationOtsu = zeros(1,w);

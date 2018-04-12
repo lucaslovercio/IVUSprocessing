@@ -1,6 +1,4 @@
 function [out] = functionHaralickTextureFeaturesRadial( img, window, widthPolar, heightPolar )
-%FUNCTIONHARALICKTEXTUREFEATURESRADIAL Summary of this function goes here
-%   Detailed explanation goes here
 
 out.sumOfSquaresRadial = zeros(heightPolar,widthPolar);
 out.angularSecondMomentRadial = zeros(heightPolar,widthPolar);
@@ -35,11 +33,11 @@ for i=1:1:heightPolar%Recorre alto
         angularSecondMomentPixel = functionAngularSecondMoment(glcmProb,levels);
         out.angularSecondMomentRadial(i,j) = angularSecondMomentPixel;
         
-        %entropia
+        %Entropy
         entropiaPixel = functionEntropy(glcmProb,levels);
         out.entropyRadial(i,j) = entropiaPixel;
         
-        %contrast
+        %Contrast
         contrastPixel = functionContrast(glcmProb,levels);
         out.contrastRadial(i,j) = contrastPixel;
         
