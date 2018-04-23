@@ -1,4 +1,4 @@
-# IVUS image preprocessing for segmentation
+# IVUS image preprocessing and segmentation
 
 Lucas Daniel Lo Vercio
 
@@ -7,7 +7,9 @@ Pladema Institute (Facultad de Ciencias Exactas, UNCPBA, Tandil, Argentina) and 
 Supervised by Mariana del Fresno and Ignacio Larrabide
 
 ## Introduction
-This toolbox provides preprocessing for 20 MHz IVUS images, particularly enhancement for lumen, vessel wall and sourrounding tissues (LoVercio2016), and classification of morphological structures (LoVercio2017). These are necessary steps for lumen-intima and media-adventicia segmentation.
+This toolbox provides processing for 20 MHz IVUS images, particularly enhancement for lumen, vessel wall and sourrounding tissues (LoVercio2016), and classification of morphological structures (LoVercio2017). These are necessary steps for lumen-intima and media-adventicia segmentation.
+
+Lumen-intima and media-adventitia segmentation publication is under review.
 
 ## License
 
@@ -84,3 +86,7 @@ There are also some third party libraries included in our code. If you use it, p
 **Color map CoolWarmUChar257.csv provided by Kenneth Moreland:** Diverging Color Maps for Scientific Visualization. Kenneth Moreland. In Proceedings of the 5th International Symposium on Visual Computing, December 2009. DOI 10.1007/978-3-642-10520-3_9.
 
 **Sample IVUS images provided by Simone Balocco:** Simone Balocco et al. Standardized evaluation methodology and reference database for evaluating IVUS image segmentation. Comput Med Imaging Graph, 38(2):70-90, 2014.
+
+## Lumen-intima and media-adventitia segmentation
+
+Submitted
