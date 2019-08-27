@@ -2,7 +2,7 @@
 
 Lucas Daniel Lo Vercio
 
-Pladema Institute (Facultad de Ciencias Exactas, UNCPBA, Tandil, Argentina) and CONICET (Consejo Nacional de Investigaciones Científicas y Técnicas, Argentina)
+Pladema Institute (Facultad de Ciencias Exactas, UNCPBA, Tandil, Argentina) and CONICET (Consejo Nacional de Investigaciones CientÃ­ficas y TÃ©cnicas, Argentina)
 
 Supervised by Mariana del Fresno and Ignacio Larrabide
 
@@ -43,7 +43,7 @@ Returns the pixel classification for Lumen and Background of an IVUS image in po
 
 ### Citing
 
-Lucas Lo Vercio, José Ignacio Orlando, Mariana del Fresno, y Ignacio Larrabide. Assessment of image features for vessel wall segmentation in intravascular ultrasound images. International Journal of Computer Assisted Radiology and Surgery, 2016. ISSN 1861-6429.
+Lucas Lo Vercio, JosÃ© Ignacio Orlando, Mariana del Fresno, y Ignacio Larrabide. Assessment of image features for vessel wall segmentation in intravascular ultrasound images. International Journal of Computer Assisted Radiology and Surgery, 2016. ISSN 1861-6429.
 
 https://link.springer.com/article/10.1007/s11548-015-1345-4
 
@@ -81,12 +81,34 @@ year = {2017}
 }
 ```
 
+## Lumen-intima and media-adventitia segmentation
+
+scriptSegmentIVUS.m
+
+It shows how to use the modules to obtain a final segmentation of lumen and adventitia borders.
+
+### Citing
+
+Lucas Lo Vercio, Mariana del Fresno, and Ignacio Larrabide. Lumen-intima and media-adventitia segmentation in IVUS images using supervised classifications of arterial layers and morphological structures. Computer Methods and Programs in Biomedicine. 2019.
+
+http://www.sciencedirect.com/science/article/pii/S0169260718318224
+
+```
+@article{LoVercio2019,
+title = {Lumen-intima and media-adventitia segmentation in IVUS images using supervised classifications of arterial layers and morphological structures},
+journal = {Computer Methods and Programs in Biomedicine},
+volume = {177},
+pages = {113--121},
+year = {2019},
+doi = {https://doi.org/10.1016/j.cmpb.2019.05.021},
+author = {Lo Vercio, Lucas and del Fresno, Mariana and Larrabide, Ignacio},
+}
+```
+
+
 There are also some third party libraries included in our code. If you use it, please cite:
 
 **Color map CoolWarmUChar257.csv provided by Kenneth Moreland:** Diverging Color Maps for Scientific Visualization. Kenneth Moreland. In Proceedings of the 5th International Symposium on Visual Computing, December 2009. DOI 10.1007/978-3-642-10520-3_9.
 
 **Sample IVUS images provided by Simone Balocco:** Simone Balocco et al. Standardized evaluation methodology and reference database for evaluating IVUS image segmentation. Comput Med Imaging Graph, 38(2):70-90, 2014.
 
-## Lumen-intima and media-adventitia segmentation
-
-Submitted
