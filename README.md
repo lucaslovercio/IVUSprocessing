@@ -7,9 +7,7 @@ Pladema Institute (Facultad de Ciencias Exactas, UNCPBA, Tandil, Argentina) and 
 Supervised by Mariana del Fresno and Ignacio Larrabide
 
 ## Introduction
-This toolbox provides processing for 20 MHz IVUS images, particularly enhancement for lumen, vessel wall and sourrounding tissues (LoVercio2016), and classification of morphological structures (LoVercio2017). These are necessary steps for lumen-intima and media-adventicia segmentation.
-
-Lumen-intima and media-adventitia segmentation publication is under review.
+This toolbox provides processing for 20 MHz IVUS images, particularly enhancement for lumen, vessel wall and sourrounding tissues (LoVercio2016), and classification of morphological structures (LoVercio2017). These are necessary steps for lumen-intima and media-adventicia segmentation (LoVercio2019).
 
 ## License
 
